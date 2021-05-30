@@ -191,6 +191,7 @@ main {
   border-radius: 5px;
   background-color: #f38181;
   transition: opacity 0.3s;
+  height: 44px;
 }
 
 .headline__button:hover {
@@ -287,7 +288,7 @@ main {
 
 .post-item__title {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 32.5px;
   margin-top: 16px;
   transition: 0.3s opacity;
   text-align: left;
@@ -300,6 +301,7 @@ main {
 .post-item__title a {
   text-decoration: none;
   color: inherit;
+  font-size: 32.5px;
 }
 
 .post-item__description {
