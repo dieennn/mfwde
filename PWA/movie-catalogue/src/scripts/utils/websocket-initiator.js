@@ -9,7 +9,6 @@ const WebSocketInitiator = {
 
   _onMessageHandler(message) {
     const movie = JSON.parse(message.data);
-    console.log(CONFIG.BASE_IMAGE_URL + movie.poster_path);
     NotificationHelper.sendNotification({
       title: `${movie.title} is on cinema!`,
       options: {
