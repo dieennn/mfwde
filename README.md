@@ -23,3 +23,5 @@
 - [Apa yang Bisa Dilakukan Service](https://www.dicoding.com/academies/219/tutorials/9481 "https://www.dicoding.com/academies/219/tutorials/9481")
 
 - [Siklus Hidup Service Worker](https://www.dicoding.com/academies/219/tutorials/9491 "https://www.dicoding.com/academies/219/tutorials/9491")
+
+- [IndexedDB](https://www.dicoding.com/academies/219/tutorials/9536 "https://www.dicoding.com/academies/219/tutorials/9536")
