@@ -1,4 +1,5 @@
 import CONFIG from '../../globals/config';
+import cutString from '../../utils/helper';
 
 const createRestaurantDetailTemplate = (restaurant) => `
   <article class="post-item">
@@ -57,7 +58,10 @@ const createRestaurantItemTemplate = (restaurant) => `
       <h1 class="post-item__title"><a href="${`/#/detail/${restaurant.id}`}">${
   restaurant.name
 }</a></h1>
-      <p class="post-item__description">${restaurant.description}</p>
+      <p class="post-item__description">${cutString(
+        restaurant.description,
+        170
+      )}...</p>
     </div>
   </article>
 `;
