@@ -1,5 +1,8 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
+import '../styles/form.css';
+import '../styles/like.css';
+import '../styles/loading.css';
 import '../styles/responsive.css';
 
 import App from './views/app';
