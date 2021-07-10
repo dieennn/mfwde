@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import NotificationHelper from './notification-helper';
 import CONFIG from '../globals/config';
 
@@ -8,7 +9,6 @@ const WebSocketInitiator = {
   },
 
   _onMessageHandler(message) {
-    console.log(message);
     const movie = JSON.parse(message.data);
     NotificationHelper.sendNotification({
       title: `${movie.title} is on cinema!`,

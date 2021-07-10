@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import DrawerInitiator from '../utils/drawer-initiator';
 import { greet } from '../utils/helper';
 import UrlParser from '../routes/url-parser';
@@ -28,12 +29,12 @@ class App {
     this._content.innerHTML = await page.render();
     await page.afterRender();
 
-    let titleHero = document.getElementsByClassName('hero__title')[0];
+    const titleHero = document.getElementsByClassName('hero__title')[0];
     titleHero.innerHTML = `Good ${greet()}. Showing other restaurant arround you`;
 
-    let elFooter = document.getElementsByTagName('footer')[0];
-    let year = new Date().getFullYear();
-    let y = year === 2021 ? year : `2021 - ${year}`;
+    const elFooter = document.getElementsByTagName('footer')[0];
+    const year = new Date().getFullYear();
+    const y = year === 2021 ? year : `2021 - ${year}`;
     elFooter.innerHTML = `Copyright © ${y} - Intfd Restaurant`;
   }
 }

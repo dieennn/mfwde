@@ -1,16 +1,14 @@
-let cutString = (data, limit) => {
-  return data.length > limit ? data.substring(0, limit) : data;
-};
+const cutString = (data, limit) => (data.length > limit ? data.substring(0, limit) : data);
 
 /**
  * * Greeting
  */
-let greet = () => {
+const greet = () => {
   let display = '';
-  let todaydate = new Date();
-  let timeis = todaydate.getTime();
+  const todaydate = new Date();
+  const timeis = todaydate.getTime();
   todaydate.setTime(timeis);
-  let houris = todaydate.getHours();
+  const houris = todaydate.getHours();
   if (houris < 9) display = 'Morning';
   else if (houris < 14) display = 'Afternoon';
   else if (houris < 18) display = 'Afternoon';

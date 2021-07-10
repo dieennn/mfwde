@@ -5,18 +5,18 @@ const createRestaurantDetailTemplate = (restaurant) => `
   <div class="detail">
     <div>
       <img class="img-thumbnail" src="${
-        restaurant.pictureId
-          ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
-          : 'https://picsum.photos/id/666/800/450?grayscale'
-      }"
+  restaurant.pictureId
+    ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
+    : 'https://picsum.photos/id/666/800/450?grayscale'
+}"
         alt="${restaurant.name}">
     </div>
   
     
     <ul class="detail-info">
       <li><i title="restaurant" class="fa fa-store"></i>&nbsp;&nbsp;${
-        restaurant.name
-      }&nbsp;&nbsp;<i title="address" class="fa fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;${
+  restaurant.name
+}&nbsp;&nbsp;<i title="address" class="fa fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;${
   restaurant.address
 }, ${
   restaurant.city
@@ -24,12 +24,12 @@ const createRestaurantDetailTemplate = (restaurant) => `
   restaurant.rating
 }</li>
       <li>${restaurant.categories
-        .map(
-          (category) => `
+    .map(
+      (category) => `
             <span class="detail-category">${category.name}</span>
-          `
-        )
-        .join('')}
+          `,
+    )
+    .join('')}
       </li>
       <li><p class="">Description: ${restaurant.description}</p></li>
     </ul>
@@ -42,24 +42,24 @@ const createRestaurantDetailTemplate = (restaurant) => `
           <h4>Foods</h4>
           <ol>
             ${restaurant.menus.foods
-              .map(
-                (food) => `
+    .map(
+      (food) => `
                   <li><i class"fa fa-store"></i>${food.name}</li>
-                `
-              )
-              .join('')}
+                `,
+    )
+    .join('')}
           <ol>
         </div>
         <div class="detail-drink">
           <h4>Drinks</h4>
           <ol>
             ${restaurant.menus.drinks
-              .map(
-                (drink) => `
+    .map(
+      (drink) => `
                   <li>${drink.name}</li>
-                `
-              )
-              .join('')}
+                `,
+    )
+    .join('')}
           <ol>
         </div>
       </div>
@@ -70,23 +70,22 @@ const createRestaurantDetailTemplate = (restaurant) => `
       <legend>Reviews</legend>
       <div class="detail-review grid-2">
       ${restaurant.customerReviews
-        .map(
-          (review) =>
-            `
+    .map(
+      (review) => `
             <div class="detail-review-item">
               <div class="review-header">
                 <p class="review-name"><img class="review-avatar" src="https://robohash.org/${
-                  review.name
-                }?set=set4" alt="avatar ${review.name}">&nbsp;${review.name}</p>
+  review.name
+}?set=set4" alt="avatar ${review.name}">&nbsp;${review.name}</p>
                 <p class="review-date">${review.date}</p>
               </div>
               <div class="review-body">
                 ${cutString(review.review, 20)}...
               </div>
             </div>
-          `
-        )
-        .join('')}
+          `,
+    )
+    .join('')}
       </div>
     </fieldset>
     
@@ -98,10 +97,10 @@ const createRestaurantDetailTemplate = (restaurant) => `
 const createRestaurantItemTemplate = (restaurant) => `
   <article class="post-item">
     <img class="post-item__thumbnail" src="${
-      restaurant.pictureId
-        ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
-        : 'https://picsum.photos/id/666/800/450?grayscale'
-    }"
+  restaurant.pictureId
+    ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
+    : 'https://picsum.photos/id/666/800/450?grayscale'
+}"
       alt="${restaurant.name}">
     <div class="post-item__content">
       <div class="rate-n-location">
@@ -112,9 +111,9 @@ const createRestaurantItemTemplate = (restaurant) => `
   restaurant.name
 }</a></h1>
       <p class="post-item__description">${cutString(
-        restaurant.description,
-        170
-      )}...</p>
+    restaurant.description,
+    170,
+  )}...</p>
     </div>
   </article>
 `;

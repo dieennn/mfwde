@@ -22,20 +22,20 @@ const Like = {
     const restaurant = await FavoriteRestaurantIdb.getAllRestaurants();
     const restaurantContainer = document.querySelector('#restaurant');
     loading.innerHTML = Loading();
-    console.log(restaurant);
     try {
       if (restaurant.length) {
+        // eslint-disable-next-line no-shadow
         restaurant.forEach((restaurant) => {
-          restaurantContainer.innerHTML +=
-            createRestaurantItemTemplate(restaurant);
+          restaurantContainer.innerHTML
+            += createRestaurantItemTemplate(restaurant);
         });
       } else {
-        errorContainer.innerHTML = `<strong>Data restaurant liked not available</strong>`;
+        errorContainer.innerHTML = '<strong>Data restaurant liked not available</strong>';
       }
       loading.style.display = 'none';
     } catch (error) {
       errorContainer.innerHTML = `<strong>Error: ${error}, try to refresh page!</strong>`;
-      // loading.style.display = 'none';
+      loading.style.display = 'none';
     }
   },
 };

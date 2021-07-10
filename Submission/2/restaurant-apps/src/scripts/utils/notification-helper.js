@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-underscore-dangle */
 const NotificationHelper = {
   sendNotification({ title, options }) {
     if (!this._checkAvailability()) {

@@ -46,8 +46,8 @@ const ListRestaurant = {
     try {
       const restaurants = await TheRestaurantDbSource.listRestaurant();
       restaurants.forEach((restaurant) => {
-        restaurantContainer.innerHTML +=
-          createRestaurantItemTemplate(restaurant);
+        restaurantContainer.innerHTML
+          += createRestaurantItemTemplate(restaurant);
       });
       restaurantContainer.style.display = 'grid';
       loading.style.display = 'none';
@@ -63,13 +63,12 @@ const ListRestaurant = {
         loading.style.display = 'block';
         try {
           const restaurantSearch = await TheRestaurantDbSource.searchRestaurant(
-            inputSearch.value
+            inputSearch.value,
           );
           restaurantContainer.innerHTML = '';
           restaurantSearch.forEach((restaurant) => {
-            console.log(restaurant);
-            restaurantContainer.innerHTML +=
-              createRestaurantItemTemplate(restaurant);
+            restaurantContainer.innerHTML
+              += createRestaurantItemTemplate(restaurant);
           });
           restaurantContainer.style.display = 'grid';
           loading.style.display = 'none';

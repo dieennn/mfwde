@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import UrlParser from '../../routes/url-parser';
 import TheRestaurantDbSource from '../../data/therestaurantdb-source';
 import { createRestaurantDetailTemplate } from '../templates/template-creator';
@@ -53,8 +54,7 @@ const Detail = {
 
     try {
       const restaurant = await TheRestaurantDbSource.detailRestaurant(url.id);
-      restaurantContainer.innerHTML =
-        createRestaurantDetailTemplate(restaurant);
+      restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
 
       LikeButtonInitiator.init({
         likeButtonContainer: document.querySelector('#likeButtonContainer'),
