@@ -25,6 +25,12 @@ class TheRestaurantDbSource {
     });
     return rawResponse;
   }
+
+  static async searchRestaurant(id) {
+    const response = await fetch(API_ENDPOINT.SEARCH(id));
+    const responseJson = await response.json();
+    return responseJson.restaurants;
+  }
 }
 
 export default TheRestaurantDbSource;

@@ -1,5 +1,5 @@
 import CONFIG from '../../globals/config';
-import cutString from '../../utils/helper';
+import { cutString } from '../../utils/helper';
 
 const createRestaurantDetailTemplate = (restaurant) => `
   <div class="detail">
@@ -35,53 +35,60 @@ const createRestaurantDetailTemplate = (restaurant) => `
     </ul>
 
 
-    <div class="detail-menu grid-2">
-      <div class="detail-food">
-        <h4>Foods</h4>
-        <ol>
-          ${restaurant.menus.foods
-            .map(
-              (food) => `
-                <li><i class"fa fa-store"></i>${food.name}</li>
-              `
-            )
-            .join('')}
-        <ol>
+    <fieldset>
+      <legend>Food & Drink</legend>
+      <div class="detail-menu grid-2">
+        <div class="detail-food">
+          <h4>Foods</h4>
+          <ol>
+            ${restaurant.menus.foods
+              .map(
+                (food) => `
+                  <li><i class"fa fa-store"></i>${food.name}</li>
+                `
+              )
+              .join('')}
+          <ol>
+        </div>
+        <div class="detail-drink">
+          <h4>Drinks</h4>
+          <ol>
+            ${restaurant.menus.drinks
+              .map(
+                (drink) => `
+                  <li>${drink.name}</li>
+                `
+              )
+              .join('')}
+          <ol>
+        </div>
       </div>
-      <div class="detail-drink">
-        <h4>Drinks</h4>
-        <ol>
-          ${restaurant.menus.drinks
-            .map(
-              (drink) => `
-                <li>${drink.name}</li>
-              `
-            )
-            .join('')}
-        <ol>
-      </div>
-    </div>
+    </fieldset>
     
 
-    <h3 class="title-review">Reviews</h3>
-    <div class="detail-review grid-3">
-    ${restaurant.customerReviews
-      .map(
-        (review) =>
+    <fieldset>
+      <legend>Reviews</legend>
+      <div class="detail-review grid-2">
+      ${restaurant.customerReviews
+        .map(
+          (review) =>
+            `
+            <div class="detail-review-item">
+              <div class="review-header">
+                <p class="review-name"><img class="review-avatar" src="https://robohash.org/${
+                  review.name
+                }?set=set4" alt="avatar ${review.name}">&nbsp;${review.name}</p>
+                <p class="review-date">${review.date}</p>
+              </div>
+              <div class="review-body">
+                ${cutString(review.review, 20)}...
+              </div>
+            </div>
           `
-          <div class="detail-review-item">
-            <div class="review-header">
-              <p class="review-name"><img class="review-avatar" src="https://robohash.org/${review.name}?set=set4" alt="avatar ${review.name}">&nbsp;${review.name}</p>
-              <p class="review-date">${review.date}</p>
-            </div>
-            <div class="review-body">
-              ${review.review}
-            </div>
-          </div>
-        `
-      )
-      .join('')}
-    </div>
+        )
+        .join('')}
+      </div>
+    </fieldset>
     
   </div>
   
@@ -113,13 +120,13 @@ const createRestaurantItemTemplate = (restaurant) => `
 `;
 
 const createLikeButtonTemplate = () => `
-  <button aria-label="like this movie" id="likeButton" class="like">
-     <i class="fa fa-heart-o" aria-hidden="true"></i>
+  <button aria-label="like this restaurant" id="likeButton" class="like">
+     <i class="far fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
 const createLikedButtonTemplate = () => `
-  <button aria-label="unlike this movie" id="likeButton" class="like">
+  <button aria-label="unlike this restaurant" id="likeButton" class="like">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;

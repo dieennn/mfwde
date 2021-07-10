@@ -1,5 +1,6 @@
 import TheRestaurantDbSource from '../../data/therestaurantdb-source';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
+import Loading from '../templates/loading';
 
 const ListRestaurant = {
   async render() {
@@ -21,6 +22,11 @@ const ListRestaurant = {
         </div>
       </article>
       <div class="latest">
+        <div id="loading" class="loading"></div>
+        <div class="form-search">
+          <input type="text" class="form-control" name="search">
+          <button id="btn-search" class="btn btn-primary" title="Search Restaurant"><i class="fa fa-search"></i></button>
+        </div>
         <h1 class="latest__label">Latest Post</h1>
         <div id="restaurants" class="posts"></div>
       </div>
@@ -29,12 +35,52 @@ const ListRestaurant = {
   },
 
   async afterRender() {
-    document.querySelector('.hero').style.display = 'block';
-    const restaurants = await TheRestaurantDbSource.listRestaurant();
-    console.log(restaurants);
     const restaurantContainer = document.querySelector('#restaurants');
-    restaurants.forEach((restaurant) => {
-      restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+    const loading = document.querySelector('#loading');
+    const btnSearch = document.querySelector('#btn-search');
+    const inputSearch = document.querySelector('input[name=search]');
+
+    loading.innerHTML = Loading();
+    restaurantContainer.style.display = 'none';
+
+    try {
+      const restaurants = await TheRestaurantDbSource.listRestaurant();
+      restaurants.forEach((restaurant) => {
+        restaurantContainer.innerHTML +=
+          createRestaurantItemTemplate(restaurant);
+      });
+      restaurantContainer.style.display = 'grid';
+      loading.style.display = 'none';
+    } catch (error) {
+      restaurantContainer.innerHTML = `<strong>Error: ${error}, try to refresh page!</strong>`;
+      restaurantContainer.style.display = 'grid';
+      loading.style.display = 'none';
+    }
+
+    btnSearch.addEventListener('click', async (e) => {
+      e.preventDefault();
+      if (inputSearch.value.length) {
+        loading.style.display = 'block';
+        try {
+          const restaurantSearch = await TheRestaurantDbSource.searchRestaurant(
+            inputSearch.value
+          );
+          restaurantContainer.innerHTML = '';
+          restaurantSearch.forEach((restaurant) => {
+            console.log(restaurant);
+            restaurantContainer.innerHTML +=
+              createRestaurantItemTemplate(restaurant);
+          });
+          restaurantContainer.style.display = 'grid';
+          loading.style.display = 'none';
+        } catch (error) {
+          restaurantContainer.innerHTML = `<strong>Error: ${error}, try to refresh page!</strong>`;
+          restaurantContainer.style.display = 'grid';
+          loading.style.display = 'none';
+        }
+      } else {
+        inputSearch.focus();
+      }
     });
 
     // Fungsi ini akan dipanggil setelah render()

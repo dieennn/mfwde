@@ -9,24 +9,25 @@ const Detail = {
   async render() {
     return `
     <div class="container">
-      <div id="loading"></div>
+      <div id="loading" class="loading"></div>
       <div class="main">
         <section id="detail-restaurant" class=""></section>
 
         <div id="likeButtonContainer"></div>
 
         <div class="form-review">
-          <form>
-            <div class="mb-3">
+          <fieldset>
+            <legend>Send Review</legend>
+            <div class="form-input">
               <label for="inputName" class="form-label">Name</label>
               <input type="text" class="form-control" id="inputName" autocomplete="off">
             </div>
-            <div class="mb-3">
+            <div class="form-input">
               <label for="inputReview" class="form-label">Review</label>
-              <input type="text" class="form-control" id="inputReview" autocomplete="off">
+              <textarea type="text" class="form-control" id="inputReview" rows="4" cols="50"></textarea>
             </div>
-            <button id="submit-review" type="submit" class="btn2">Submit</button>
-          </form>
+            <button id="submit-review" type="submit" class="btn btn-blue">Submit</button>
+          </fieldset>
         </div>
 
       </div>
@@ -35,7 +36,7 @@ const Detail = {
   },
 
   async afterRender() {
-    document.querySelector('.hero').style.display = 'none';
+    // document.querySelector('.hero').style.display = 'none';
     const loading = document.querySelector('#loading');
     const main = document.querySelector('.main');
     const restaurantContainer = document.querySelector('#detail-restaurant');
@@ -52,19 +53,18 @@ const Detail = {
 
     try {
       const restaurant = await TheRestaurantDbSource.detailRestaurant(url.id);
-      console.log(restaurant);
       restaurantContainer.innerHTML =
         createRestaurantDetailTemplate(restaurant);
 
       LikeButtonInitiator.init({
         likeButtonContainer: document.querySelector('#likeButtonContainer'),
-        data,
+        restaurant,
       });
 
       main.style.display = 'block';
       loading.style.display = 'none';
     } catch (error) {
-      restaurantContainer.innerHTML = `Error: ${error}, try to refresh page!`;
+      restaurantContainer.innerHTML = `<strong>Error: ${error}, try to refresh page!</strong>`;
       main.style.display = 'block';
       loading.style.display = 'none';
       formReview.style.display = 'none';
@@ -72,10 +72,12 @@ const Detail = {
 
     btnSubmit.addEventListener('click', (e) => {
       e.preventDefault();
-      if (nameInput.value === '' || reviewInput.value === '') {
-        alert('Inputan tidak boleh ada yang kosong');
-        nameInput.value = '';
-        reviewInput.value = '';
+      if (nameInput.value === '') {
+        alert('Name is required');
+        nameInput.focus();
+      } else if (reviewInput.value === '') {
+        alert('Review is required');
+        reviewInput.focus();
       } else {
         PostReview(url, nameInput.value, reviewInput.value);
         nameInput.value = '';

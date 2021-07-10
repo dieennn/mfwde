@@ -1,12 +1,13 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
-import '../styles/form.css';
 import '../styles/like.css';
 import '../styles/loading.css';
 import '../styles/responsive.css';
 
 import App from './views/app';
-import CONFIG from './globals/config';
+import swRegister from './utils/sw-register';
+// import CONFIG from './globals/config';
+// import WebSocketInitiator from './utils/websocket-initiator';
 
 const app = new App({
   button: document.querySelector('#menu'),
@@ -20,4 +21,6 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
+  // WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
 });

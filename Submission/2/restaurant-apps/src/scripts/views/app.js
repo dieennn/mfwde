@@ -1,4 +1,5 @@
 import DrawerInitiator from '../utils/drawer-initiator';
+import { greet } from '../utils/helper';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
 
@@ -26,6 +27,9 @@ class App {
     const page = routes[url];
     this._content.innerHTML = await page.render();
     await page.afterRender();
+
+    let titleHero = document.getElementsByClassName('hero__title')[0];
+    titleHero.innerHTML = `Good ${greet()}. Showing other restaurant arround you`;
 
     let elFooter = document.getElementsByTagName('footer')[0];
     let year = new Date().getFullYear();

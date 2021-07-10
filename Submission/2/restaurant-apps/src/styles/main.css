@@ -1,12 +1,13 @@
+/* https://colorhunt.co/palette/b5eaeaedf6e5ffbcbcf38ba0 */
 :root {
   --primary-color: #ffffff;
   --secondary-color: #000000;
   --font-color: #1f1f1f;
-  --image-color: linear-gradient(71.9deg, #354c6282 -3.77%, #9e2b2b2b 92.46%);
-  --hover-navbar: #f0f0f0be;
-  --box-shadow: #00000033;
-  --btn: #db2a2a;
-  --btn-hover: #fa3a3a;
+
+  --color-blue: #b5eaea;
+  --color-green: #edf6e5;
+  --color-red1: #ffbcbc;
+  --color-red2: #f38ba0;
 }
 
 * {
@@ -256,9 +257,11 @@ main {
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
+  transition-duration: 0.5s;
 }
 
 .post-item:hover {
+  transition-duration: 0.5s;
   box-shadow: -2px 0px 44px -10px rgba(0, 0, 0, 0.42);
   -webkit-box-shadow: -2px 0px 44px -10px rgba(0, 0, 0, 0.42);
   -moz-box-shadow: -2px 0px 44px -10px rgba(0, 0, 0, 0.42);
@@ -370,10 +373,12 @@ footer {
 
 .detail-category {
   padding: 0.3em 1em;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
   margin-right: 2px;
   border-radius: 1.5em;
+  border-radius: 1rem;
+  border: 1px solid var(--color-blue);
+  background-color: var(--color-blue);
+  font-size: small;
 }
 
 #detail-restaurant {
@@ -423,7 +428,7 @@ footer {
 
 .detail-review-item {
   color: var(--secondary-color);
-  border: 1px solid var(--secondary-color);
+  border: 1px solid #b5eaea;
   background-color: var(--primary-color);
   border-radius: 1em;
   box-shadow: 1px 2px 4px 2px var(--box-shadow);
@@ -435,7 +440,7 @@ footer {
   align-items: center;
   padding: 1em 1em;
   color: var(--secondary-color);
-  border-bottom: 1px solid var(--font-color);
+  border-bottom: 1px dashed var(--color-blue);
 }
 
 .review-name {
@@ -457,4 +462,87 @@ footer {
 
 .review-body {
   padding: 1.5em;
+}
+
+.form-review {
+  padding-top: 1rem;
+}
+
+/* FIELDSET */
+fieldset {
+  border: 5px dashed #dddddd;
+  border-radius: 1rem;
+  display: block;
+  font-size: 14px;
+  padding: 1em 2em;
+}
+
+legend {
+  background: var(--color-red1);
+  color: #ffffff;
+  margin-bottom: 10px;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  font-weight: bold;
+}
+
+/* button */
+
+.btn {
+  background-color: #4caf50;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.btn-blue {
+  background-color: white;
+  color: black;
+  border: 2px solid var(--color-blue);
+}
+
+.btn-blue:hover {
+  background-color: var(--color-blue);
+  color: white;
+}
+
+/* FORM */
+form {
+  padding: 1.5em;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 1em;
+  padding: 0.3em;
+  font-size: 1em;
+  font-weight: normal;
+  border: 2px solid var(--color-blue);
+  border-radius: 5px;
+}
+
+.form-control:focus {
+  border-bottom: 1px solid #bfd48c;
+  outline: none;
+}
+
+.form-label {
+  padding-bottom: 8px;
+  font-weight: bold;
+  font-style: normal;
+  font-size: small;
+}
+
+.form-input {
+  margin-bottom: 1.3em;
+  margin-top: 0.5em;
 }
