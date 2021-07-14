@@ -1,39 +1,22 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable comma-dangle */
-class FavoriteMovieSearchPresenter {
-  constructor({ favoriteMovies, view }) {
+class FavoriteMovieShowPresenter {
+  constructor({ view, favoriteMovies }) {
     this._view = view;
-    this._listenToSearchRequestByUser();
     this._favoriteMovies = favoriteMovies;
+
+    this._showFavoriteMovies();
   }
 
-  _listenToSearchRequestByUser() {
-    this._view.runWhenUserIsSearching((latestQuery) => {
-      this._searchMovies(latestQuery);
-    });
+  async _showFavoriteMovies() {
+    const movies = await this._favoriteMovies.getAllMovies();
+    this._displayMovies(movies);
   }
 
-  async _searchMovies(latestQuery) {
-    this._latestQuery = latestQuery.trim();
-
-    let foundMovies;
-    if (this.latestQuery.length > 0) {
-      foundMovies = await this._favoriteMovies.searchMovies(this.latestQuery);
-    } else {
-      foundMovies = await this._favoriteMovies.getAllMovies();
-    }
-
-    this._showFoundMovies(foundMovies);
-  }
-
-  _showFoundMovies(movies) {
-    this._view.showMovies(movies);
-  }
-
-  get latestQuery() {
-    return this._latestQuery;
+  _displayMovies(movies) {
+    this._view.showFavoriteMovies(movies);
   }
 }
 
-export default FavoriteMovieSearchPresenter;
+export default FavoriteMovieShowPresenter;
