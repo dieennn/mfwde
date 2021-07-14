@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb';
 import * as TestFactories from './helpers/testFactories';
 
@@ -13,14 +14,17 @@ describe('Liking A Movie', () => {
   it('should show the like button when the movie has not been liked before', async () => {
     await TestFactories.createLikeButtonPresenterWithMovie({ id: 1 });
 
-    expect(document.querySelector('[aria-label="like this movie"]'))
-      .toBeTruthy();
+    expect(
+      document.querySelector('[aria-label="like this movie"]')
+    ).toBeTruthy();
   });
 
   it('should not show the unlike button when the movie has not been liked before', async () => {
     await TestFactories.createLikeButtonPresenterWithMovie({ id: 1 });
 
-    expect(document.querySelector('[aria-label="unlike this movie"]')).toBeFalsy();
+    expect(
+      document.querySelector('[aria-label="unlike this movie"]')
+    ).toBeFalsy();
   });
 
   it('should be able to like the movie', async () => {
