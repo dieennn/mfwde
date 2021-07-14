@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable comma-dangle */
 class FavoriteMovieSearchPresenter {
@@ -14,16 +15,18 @@ class FavoriteMovieSearchPresenter {
   }
 
   async _searchMovies(latestQuery) {
-    this._latestQuery = latestQuery;
+    this._latestQuery = latestQuery.trim();
 
-    const foundMovies = await this._favoriteMovies.searchMovies(
-      this.latestQuery
-    );
+    let foundMovies;
+    if (this.latestQuery.length > 0) {
+      foundMovies = await this._favoriteMovies.searchMovies(this.latestQuery);
+    } else {
+      foundMovies = await this._favoriteMovies.getAllMovies();
+    }
 
     this._showFoundMovies(foundMovies);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   _showFoundMovies(movies) {
     const html = movies.reduce(
       (carry, movie) =>
