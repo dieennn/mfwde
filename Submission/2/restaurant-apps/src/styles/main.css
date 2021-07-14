@@ -493,14 +493,15 @@ legend {
   border-radius: 5px;
   border: none;
   color: white;
-  padding: 5px 5px;
+  padding: 5px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 26px;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+  min-height: 44px;
 }
 
 .btn-blue {
@@ -522,7 +523,7 @@ form {
 .form-control {
   display: block;
   width: 100%;
-  min-height: 1em;
+  min-height: 44px;
   padding: 0.3em;
   font-size: 1em;
   font-weight: normal;
