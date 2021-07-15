@@ -2,9 +2,6 @@ import "../styles/main.css";
 import filter from "lodash.filter";
 import contacts from "./contacts";
 
-import $ from "jquery";
-import axios from "axios";
-
 const inputContactForm = document.querySelector("#inputContactForm");
 const inputName = document.querySelector("#inputName");
 const inputNumber = document.querySelector("#inputNumber");
@@ -38,9 +35,9 @@ showContactForm.addEventListener("submit", (event) => {
 
 const renderContact = (contact) => {
   contactContainer.innerHTML += `
-           <li>
-               <h4>${contact.name} (${contact.type})</h4>
-               <p>${contact.number}</p>
-           </li>
-  `;
+            <li>
+                <h4>${contact.name} (${contact.type})</h4>
+                <p>${contact.number}</p>
+            </li>
+   `;
 };
