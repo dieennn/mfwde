@@ -28,7 +28,7 @@ const ListRestaurant = {
           <button id="btn-search" class="btn btn-primary" title="Search Restaurant"><i class="fa fa-search"></i></button>
         </div>
         <h1 class="latest__label">Latest Post</h1>
-        <div id="restaurants" class="posts"></div>
+        <div id="restaurants" class="posts grid-4"></div>
       </div>
     </section>
     `;
@@ -46,8 +46,8 @@ const ListRestaurant = {
     try {
       const restaurants = await TheRestaurantDbSource.listRestaurant();
       restaurants.forEach((restaurant) => {
-        restaurantContainer.innerHTML
-          += createRestaurantItemTemplate(restaurant);
+        restaurantContainer.innerHTML +=
+          createRestaurantItemTemplate(restaurant);
       });
       restaurantContainer.style.display = 'grid';
       loading.style.display = 'none';
@@ -63,12 +63,12 @@ const ListRestaurant = {
         loading.style.display = 'block';
         try {
           const restaurantSearch = await TheRestaurantDbSource.searchRestaurant(
-            inputSearch.value,
+            inputSearch.value
           );
           restaurantContainer.innerHTML = '';
           restaurantSearch.forEach((restaurant) => {
-            restaurantContainer.innerHTML
-              += createRestaurantItemTemplate(restaurant);
+            restaurantContainer.innerHTML +=
+              createRestaurantItemTemplate(restaurant);
           });
           restaurantContainer.style.display = 'grid';
           loading.style.display = 'none';

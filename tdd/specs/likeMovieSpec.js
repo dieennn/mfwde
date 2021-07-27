@@ -11,7 +11,7 @@ describe('Liking A Movie', () => {
     addLikeButtonContainer();
   });
 
-  it('should show the like button when the movie has not been liked before', async () => {
+  /* it('should show the like button when the movie has not been liked before', async () => {
     await TestFactories.createLikeButtonPresenterWithMovie({ id: 1 });
 
     expect(
@@ -49,7 +49,7 @@ describe('Liking A Movie', () => {
     expect(await FavoriteMovieIdb.getAllMovies()).toEqual([{ id: 1 }]);
 
     FavoriteMovieIdb.deleteMovie(1);
-  });
+  }); */
 
   it('should not add a movie when it has no id', async () => {
     await TestFactories.createLikeButtonPresenterWithMovie({});

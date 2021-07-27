@@ -58,7 +58,7 @@
   }
 
   .post-item__content {
-    padding: 16px 32px 32px 32px;
+    padding: 5px 15px 15px 15px;
   }
 
   .post-item__title {
@@ -148,5 +148,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1.245em;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
