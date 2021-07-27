@@ -5,7 +5,6 @@ import {
 
 const LikeButtonPresenter = {
   async init({ likeButtonContainer, favoriteMovies, movie }) {
-    console.log(movie);
     this._likeButtonContainer = likeButtonContainer;
     this._movie = movie;
     this._favoriteMovies = favoriteMovies;
