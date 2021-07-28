@@ -38,8 +38,8 @@ const FavoriteRestaurantArray = {
     );
   },
 
-  searchRestaurant(query) {
-    return this.getAllRestaurant().filter((restaurant) => {
+  searchRestaurants(query) {
+    return this.getAllRestaurants().filter((restaurant) => {
       const loweredCaseRestaurantTitle = (
         restaurant.title || '-'
       ).toLowerCase();

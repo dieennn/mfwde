@@ -80,7 +80,6 @@ describe('Searching movies', () => {
         .getElementById('movies')
         .addEventListener('movies:updated', () => {
           const movieTitles = document.querySelectorAll('.movie__title');
-          console.log(document.querySelectorAll('.movie__title'));
           expect(movieTitles.item(0).textContent).toEqual('-');
 
           done();
