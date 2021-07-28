@@ -1,4 +1,8 @@
-const cutString = (data, limit) => (data.length > limit ? data.substring(0, limit) : data);
+const cutString = (data, limit) => {
+  if (typeof data !== 'undefined') {
+    return data.length > limit ? data.substring(0, limit) : data;
+  }
+};
 
 /**
  * * Greeting

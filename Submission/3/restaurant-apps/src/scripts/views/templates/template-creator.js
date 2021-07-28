@@ -114,7 +114,7 @@ const createRestaurantItemTemplate = (restaurant) => `
         <div class="post-item__rate">⭐️ : ${restaurant.rating}</div>
       </div>
       <h1 class="post-item__title"><a href="${`/#/detail/${restaurant.id}`}">${
-  restaurant.name
+  restaurant.name || '-'
 }</a></h1>
       <p class="post-item__description">${cutString(
         restaurant.description,
