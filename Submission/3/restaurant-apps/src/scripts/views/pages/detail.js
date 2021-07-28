@@ -21,11 +21,11 @@ const Detail = {
             <legend>Send Review</legend>
             <div class="form-input">
               <label for="inputName" class="form-label">Name</label>
-              <input type="text" class="form-control" id="inputName" autocomplete="off">
+              <input type="text" class="form-control" id="inputName" name="inputName" autocomplete="off">
             </div>
             <div class="form-input">
               <label for="inputReview" class="form-label">Review</label>
-              <textarea type="text" class="form-control" id="inputReview" rows="4" cols="50"></textarea>
+              <textarea type="text" class="form-control" id="inputReview" name="inputReview" rows="4" cols="50"></textarea>
             </div>
             <button id="submit-review" type="submit" class="btn btn-blue">Submit</button>
           </fieldset>

@@ -9,7 +9,7 @@ const Like = {
         <div class="latest">
           <h1 class="latest__label">Like Restaurant</h1>
           <div id="restaurant" class="posts"></div>
-          <div id="error"></div>
+          <div id="empty-like"></div>
           <div id="loading" class="loading"></div>
         </div>
       </section>
@@ -18,7 +18,7 @@ const Like = {
 
   async afterRender() {
     const loading = document.querySelector('#loading');
-    const errorContainer = document.querySelector('#error');
+    const errorContainer = document.querySelector('#empty-like');
     const restaurant = await FavoriteRestaurantIdb.getAllRestaurants();
     const restaurantContainer = document.querySelector('#restaurant');
     loading.innerHTML = Loading();
@@ -26,11 +26,11 @@ const Like = {
       if (restaurant.length) {
         // eslint-disable-next-line no-shadow
         restaurant.forEach((restaurant) => {
-          restaurantContainer.innerHTML
-            += createRestaurantItemTemplate(restaurant);
+          restaurantContainer.innerHTML +=
+            createRestaurantItemTemplate(restaurant);
         });
       } else {
-        errorContainer.innerHTML = '<strong>Data restaurant liked not available</strong>';
+        errorContainer.innerHTML = 'Data restaurant liked not available';
       }
       loading.style.display = 'none';
     } catch (error) {

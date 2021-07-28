@@ -14,9 +14,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
   
     
     <ul class="detail-info">
-      <li><i title="restaurant" class="fa fa-store"></i>&nbsp;&nbsp;${
-        restaurant.name
-      }&nbsp;&nbsp;<i title="address" class="fa fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;${
+      <li><i title="${restaurant.name}" class="fa fa-store"></i>&nbsp;&nbsp;${
+  restaurant.name
+}</li><li><i title="address" class="fa fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;${
   restaurant.address
 }, ${
   restaurant.city
