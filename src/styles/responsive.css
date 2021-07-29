@@ -61,7 +61,7 @@
 
   .hero {
     /* min-height: 500px; */
-    background: var(--image-color), url('/images/hero-image_4-small.jpg');
+    background: url('/images/hero-image_4-small.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -126,13 +126,13 @@
 
 @media only screen and (max-width: 992px) {
   .logo-img {
-    background: var(--image-color), url('/images/logo-large.jpg');
+    background: url('/images/logo-large.jpg');
     background-size: cover;
     background-position: center;
   }
 
   .hero {
-    background: var(--image-color), url('/images/hero-image_4-large.jpg');
+    background: url('/images/hero-image_4-large.jpg');
     background-position: center;
   }
 }

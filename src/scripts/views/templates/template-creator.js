@@ -8,7 +8,11 @@ const createRestaurantDetailTemplate = (restaurant) => `
         restaurant.pictureId
           ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
           : 'https://picsum.photos/id/666/800/450?grayscale'
-      }"
+      }" data-src="${
+  restaurant.pictureId
+    ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
+    : 'https://picsum.photos/id/666/800/450?grayscale'
+}"
         alt="${restaurant.name}">
     </div>
   
@@ -78,7 +82,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
               <div class="review-header">
                 <p class="review-name"><img class="review-avatar lazyload" src="https://robohash.org/${
                   review.name
-                }?set=set4" alt="avatar ${review.name}">&nbsp;${review.name}</p>
+                }?set=set4" data-src="https://robohash.org/${
+            review.name
+          }?set=set4" alt="avatar ${review.name}">&nbsp;${review.name}</p>
                 <p class="review-date">${review.date}</p>
               </div>
               <div class="review-body">

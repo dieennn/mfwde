@@ -77,7 +77,10 @@ Scenario('Customer review', async (I) => {
 
   I.seeElement('.form-review fieldset');
 
-  const textReview = `Review from E2E testing at ${new Date().toLocaleString()}`;
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const date = new Date().toLocaleDateString('id-ID', options);
+
+  const textReview = `Review from E2E testing at ${date}`;
   I.fillField('inputName', 'Intfd');
   I.fillField('inputReview', textReview);
 
