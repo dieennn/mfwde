@@ -9,7 +9,10 @@ const ListRestaurant = {
       <div class="latest">
         <div id="loading" class="loading"></div>
         <div class="form-search">
-          <input type="text" class="form-control" name="search">
+          <label>
+            Find something ?
+            <input type="text" class="form-control" name="search">
+          </label>
           <button id="btn-search" class="btn btn-primary" title="Search Restaurant"><i class="fa fa-search"></i></button>
         </div>
         <h1 class="latest__label">Latest Post</h1>
