@@ -1,6 +1,8 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { merge } = require('webpack-merge');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -27,6 +29,13 @@ module.exports = merge(common, {
         },
       },
     },
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+      }),
+    ],
   },
   module: {
     rules: [
@@ -44,12 +53,5 @@ module.exports = merge(common, {
       },
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'disabled',
-      generateStatsFile: true,
-      statsOptions: { source: false },
-    }),
-  ],
+  plugins: [new BundleAnalyzerPlugin(), new CleanWebpackPlugin()],
 });
