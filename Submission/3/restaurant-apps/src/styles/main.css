@@ -106,9 +106,9 @@ body {
 }
 
 .logo-img {
-  content: url('/images/logo-xl.jpg');
-  width: 200;
-  height: 200;
+  text-align: center;
+  background-image: url('/images/logo-xl.jpg');
+  background-position: center;
 }
 
 /*

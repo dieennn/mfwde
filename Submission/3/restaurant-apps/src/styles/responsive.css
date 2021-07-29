@@ -52,11 +52,11 @@
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 600px) {
   .logo-img {
-    content: url('/images/logo-small.jpg');
-    width: 200;
-    height: 200;
+    background: var(--image-color), url('/images/logo-small.jpg');
+    background-size: cover;
+    background-position: center;
   }
 
   .hero {
@@ -126,9 +126,9 @@
 
 @media only screen and (max-width: 992px) {
   .logo-img {
-    content: url('/images/logo-large.jpg');
-    width: 200;
-    height: 200;
+    background: var(--image-color), url('/images/logo-large.jpg');
+    background-size: cover;
+    background-position: center;
   }
 
   .hero {
