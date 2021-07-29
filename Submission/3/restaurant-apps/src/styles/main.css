@@ -105,6 +105,12 @@ body {
   text-decoration: none;
 }
 
+.logo-img {
+  content: url('/images/logo-xl.jpg');
+  width: 200;
+  height: 200;
+}
+
 /*
  * Jumbotron
  */
@@ -115,7 +121,7 @@ body {
   min-height: 380px;
   width: 100%;
   text-align: center;
-  background-image: url('/images/heros/hero-image_4.jpg');
+  background-image: url('/images/hero-image_4-xl.jpg');
   background-position: center;
   background-color: #fce38a;
 }

@@ -51,6 +51,22 @@
   }
 }
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 600px) {
+  .logo-img {
+    content: url('/images/logo-small.jpg');
+    width: 200;
+    height: 200;
+  }
+
+  .hero {
+    /* min-height: 500px; */
+    background: var(--image-color), url('/images/hero-image_4-small.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 @media screen and (min-width: 650px) {
   .headline__content {
     margin: 0 auto;
@@ -105,6 +121,19 @@
 @media screen and (min-width: 1200px) {
   main {
     max-width: 1200px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .logo-img {
+    content: url('/images/logo-large.jpg');
+    width: 200;
+    height: 200;
+  }
+
+  .hero {
+    background: var(--image-color), url('/images/hero-image_4-large.jpg');
+    background-position: center;
   }
 }
 
