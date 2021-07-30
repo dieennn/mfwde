@@ -37,7 +37,7 @@ const FavRestaurantIdb = {
       const loweredCaseRestaurantTitle = (movie.title || '-').toLowerCase();
       const jammedRestaurantTitle = loweredCaseRestaurantTitle.replace(
         /\s/g,
-        ''
+        '',
       );
 
       const loweredCaseQuery = query.toLowerCase();

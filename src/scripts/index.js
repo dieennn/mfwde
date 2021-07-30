@@ -9,7 +9,7 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 import App from './views/app';
 import swRegister from './utils/sw-register';
-import CONFIG from './globals/config';
+// import CONFIG from './globals/config';
 // import WebSocketInitiator from './utils/websocket-initiator';
 
 const app = new App({

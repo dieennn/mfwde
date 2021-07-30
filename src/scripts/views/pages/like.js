@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 import Loading from '../templates/loading';

@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import TheRestaurantDbSource from '../../data/therestaurantdb-source';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 import Loading from '../templates/loading';
@@ -51,7 +52,7 @@ const ListRestaurant = {
         loading.style.display = 'block';
         try {
           const restaurantSearch = await TheRestaurantDbSource.searchRestaurant(
-            inputSearch.value
+            inputSearch.value,
           );
           restaurantContainer.innerHTML = '';
           restaurantSearch.forEach((restaurant) => {

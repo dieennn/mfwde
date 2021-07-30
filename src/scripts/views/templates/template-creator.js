@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import CONFIG from '../../globals/config';
 import { cutString } from '../../utils/helper';
 
@@ -31,7 +32,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
         .map(
           (category) => `
             <span class="detail-category">${category.name}</span>
-          `
+          `,
         )
         .join('')}
       </li>
@@ -51,7 +52,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
               .map(
                 (food) => `
                   <li><i class"fa fa-store"></i>${food.name}</li>
-                `
+                `,
               )
               .join('')}
           <ol>
@@ -63,7 +64,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
               .map(
                 (drink) => `
                   <li>${drink.name}</li>
-                `
+                `,
               )
               .join('')}
           <ol>
@@ -90,12 +91,12 @@ const createRestaurantDetailTemplate = (restaurant) => `
               <div class="review-body">
               ${
                 review.review.length > 55
-                  ? cutString(review.review, 55) + '...'
+                  ? `${cutString(review.review, 55)}...`
                   : review.review
               }
               </div>
             </div>
-          `
+          `,
         )
         .join('')}
       </div>
@@ -124,7 +125,7 @@ const createRestaurantItemTemplate = (restaurant) => `
 }</a></h1>
       <p class="post-item__description">${cutString(
         restaurant.description,
-        170
+        170,
       )}...</p>
     </div>
   </article>

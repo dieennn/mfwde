@@ -28,8 +28,9 @@ class FavoriteRestaurantSearchView {
     if (restaurants.length) {
       html = restaurants.reduce(
         (carry, restaurant) =>
+          // eslint-disable-next-line implicit-arrow-linebreak
           carry.concat(createRestaurantItemTemplate(restaurant)),
-        ''
+        '',
       );
     } else {
       html = this._getEmptyRestaurantTemplate();

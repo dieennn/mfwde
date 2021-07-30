@@ -54,6 +54,7 @@ const Detail = {
 
     try {
       const restaurant = await TheRestaurantDbSource.detailRestaurant(url.id);
+      // eslint-disable-next-line operator-linebreak
       restaurantContainer.innerHTML =
         createRestaurantDetailTemplate(restaurant);
 
