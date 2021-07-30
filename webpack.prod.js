@@ -53,5 +53,8 @@ module.exports = merge(common, {
       },
     ],
   },
-  plugins: [new BundleAnalyzerPlugin(), new CleanWebpackPlugin()],
+  plugins: [
+    // new BundleAnalyzerPlugin(), for analyze in web browser
+    new CleanWebpackPlugin(),
+  ],
 });
