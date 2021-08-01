@@ -5,15 +5,11 @@ import { cutString } from '../../utils/helper';
 const createRestaurantDetailTemplate = (restaurant) => `
   <div class="detail">
     <div>
-      <img class="img-thumbnail lazyload" src="${
+      <img class="img-thumbnail lazyload" data-src="${
         restaurant.pictureId
           ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
           : 'https://picsum.photos/id/666/800/450?grayscale'
-      }" data-src="${
-  restaurant.pictureId
-    ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
-    : 'https://picsum.photos/id/666/800/450?grayscale'
-}"
+      }"
         alt="${restaurant.name}">
     </div>
   
@@ -80,11 +76,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
           (review) => `
             <div class="detail-review-item">
               <div class="review-header">
-                <p class="review-name"><img class="review-avatar lazyload" src="https://robohash.org/${
+                <p class="review-name"><img class="review-avatar lazyload" data-src="https://robohash.org/${
                   review.name
-                }?set=set4" data-src="https://robohash.org/${
-            review.name
-          }?set=set4" alt="avatar ${review.name}">&nbsp;${review.name}</p>
+                }?set=set4" alt="avatar ${review.name}">&nbsp;${review.name}</p>
                 <p class="review-date">${review.date}</p>
               </div>
               <div class="review-body">
@@ -108,7 +102,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
 const createRestaurantItemTemplate = (restaurant) => `
   <article class="post-item">
-    <img class="post-item__thumbnail lazyload" src="${
+    <img class="post-item__thumbnail lazyload" data-src="${
       restaurant.pictureId
         ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
         : 'https://picsum.photos/id/666/800/450?grayscale'

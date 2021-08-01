@@ -62,6 +62,7 @@ const ListRestaurant = {
             restaurantContainer.innerHTML +=
               createRestaurantItemTemplate(restaurant);
           });
+          errorContainer.innerHTML = '';
         } else {
           errorContainer.innerHTML = 'Data restaurant search not available';
         }
