@@ -15,7 +15,7 @@ const PostReview = (url, name, review) => {
   const newReview = `
     <div class="detail-review-item">
       <div class="review-header">
-        <p class="review-name"><img class="review-avatar" src="https://robohash.org/${name}?set=set4" alt="avatar ${name}">&nbsp;${name}</p>
+        <p class="review-name"><img class="review-avatar" data-src="https://robohash.org/${name}?set=set4" alt="avatar ${name}">&nbsp;${name}</p>
         <p class="review-date">${date}</p>
       </div>
       <div class="review-body">
