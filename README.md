@@ -1,3 +1,5 @@
 # Submission 3
 
-[Submission 3](https://www.dicoding.com/academies/219/tutorials/9821 "https://www.dicoding.com/academies/219/tutorials/9821")
+- [Submission 3](https://www.dicoding.com/academies/219/tutorials/9821 "https://www.dicoding.com/academies/219/tutorials/9821")
+
+- [https://mfwde-submission3.netlify.app/](https://mfwde-submission3.netlify.app/ "https://mfwde-submission3.netlify.app/")
