@@ -1,3 +1,5 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable operator-linebreak */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
@@ -69,9 +71,7 @@ module.exports = {
       skipWaiting: true,
       runtimeCaching: [
         {
-          urlPattern: new RegExp(
-            'https://dicoding-restaurant-api.el.r.appspot.com'
-          ),
+          urlPattern: new RegExp('https://restaurant-api.dicoding.dev/'),
           handler: 'NetworkFirst',
           options: {
             cacheName: 'restaurants-cache',

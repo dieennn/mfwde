@@ -74,16 +74,20 @@ const Detail = {
 
     btnSubmit.addEventListener('click', (e) => {
       e.preventDefault();
-      if (nameInput.value === '') {
-        alert('Name is required');
-        nameInput.focus();
-      } else if (reviewInput.value === '') {
-        alert('Review is required');
-        reviewInput.focus();
+      if (navigator.onLine) {
+        if (nameInput.value === '') {
+          alert('Name is required');
+          nameInput.focus();
+        } else if (reviewInput.value === '') {
+          alert('Review is required');
+          reviewInput.focus();
+        } else {
+          PostReview(url, nameInput.value, reviewInput.value);
+          nameInput.value = '';
+          reviewInput.value = '';
+        }
       } else {
-        PostReview(url, nameInput.value, reviewInput.value);
-        nameInput.value = '';
-        reviewInput.value = '';
+        alert('Mode offline not will send review');
       }
     });
   },

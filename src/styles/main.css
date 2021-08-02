@@ -278,9 +278,10 @@ main {
 }
 
 .post-item__thumbnail {
-  background-position: 50%;
-  background-size: cover;
-  height: 200px;
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .post-item__rate {
@@ -322,7 +323,7 @@ main {
 .post-item__title a {
   text-decoration: none;
   color: inherit;
-  font-size: 44px;
+  /* font-size: 44px; */
 }
 
 .post-item__description {

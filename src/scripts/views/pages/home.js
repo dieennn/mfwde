@@ -17,6 +17,17 @@ const ListRestaurant = {
           <button id="btn-search" class="btn btn-primary" title="Search Restaurant"><i class="fa fa-search"></i></button>
         </div>
         <h1 class="latest__label">Latest Post</h1>
+        <div id="skeletons" class="posts grid-4">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+        </div>
         <div id="restaurants" class="posts grid-4"></div>
         <div id="empty-search"></div>
       </div>
@@ -26,6 +37,7 @@ const ListRestaurant = {
 
   async afterRender() {
     const restaurantContainer = document.querySelector('#restaurants');
+    const skeletonContainer = document.querySelector('#skeletons');
     const errorContainer = document.querySelector('#empty-search');
     const loading = document.querySelector('#loading');
     const btnSearch = document.querySelector('#btn-search');
@@ -42,16 +54,19 @@ const ListRestaurant = {
       });
       restaurantContainer.style.display = 'grid';
       loading.style.display = 'none';
+      skeletonContainer.style.display = 'none';
     } catch (error) {
       restaurantContainer.innerHTML = `<strong>Error: ${error}, try to refresh page!</strong>`;
       restaurantContainer.style.display = 'grid';
       loading.style.display = 'none';
+      skeletonContainer.style.display = 'none';
     }
 
     btnSearch.addEventListener('click', async (e) => {
       e.preventDefault();
       // if (inputSearch.value.length) {
       loading.style.display = 'block';
+      skeletonContainer.style.display = 'grid';
       try {
         const restaurantSearch = await TheRestaurantDbSource.searchRestaurant(
           inputSearch.value,
@@ -63,9 +78,12 @@ const ListRestaurant = {
               createRestaurantItemTemplate(restaurant);
           });
           errorContainer.innerHTML = '';
+          skeletonContainer.style.display = 'none';
         } else {
+          skeletonContainer.style.display = 'none';
           errorContainer.innerHTML = 'Data restaurant search not available';
         }
+        skeletonContainer.style.display = 'none';
         restaurantContainer.style.display = 'grid';
         loading.style.display = 'none';
       } catch (error) {

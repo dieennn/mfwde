@@ -3,6 +3,7 @@ import '../styles/main.css';
 import '../styles/like.css';
 import '../styles/loading.css';
 import '../styles/responsive.css';
+import '../styles/skeleton.css';
 
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
